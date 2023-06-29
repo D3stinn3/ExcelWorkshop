@@ -77,10 +77,8 @@ def row_loop():
     
     for i in range(1, 10, 2):
         # Use the reverse cell position to iterate through the rows
-        cell_position = sheet.cell(row=i, column=3)
-        
         # Get the cell value
-        print(i, sheet.cell(row=i, column=3).value)
+        return (i, sheet.cell(row=i, column=3).value)
                  
 
 A1_pos = superposition_A1()
