@@ -68,9 +68,9 @@ def reverse_superposition() -> str:
     
     # Find out if the value is similar to identify the cell identity    
     if C3_value == C3_value_reverse:
-        return "\nValue is similar"
+        return "\nValue is similar\nsheet['C3'] is EQUIVALENT to sheet.cell(row=3, column=3)"
     else:
-        return "\nValue is not similar"
+        return "\nValue is not similar\nsheet['C3'] is NOT EQUIVALENT to sheet.cell(row=3, column=3)"
 
 
 
