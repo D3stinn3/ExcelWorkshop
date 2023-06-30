@@ -1,4 +1,5 @@
 import openpyxl
+from openpyxl.utils import get_column_letter, column_index_from_string
 
 wb = openpyxl.load_workbook('Data.xlsx')
 sheet = wb['Sheet1']
@@ -40,9 +41,28 @@ class Iterator:
             print(column_, self.sheet.cell(row=19, column=column_).value)
         print("\n")
         
+    def converter(self):
+        # Lets convert cell numbers to letters
+        # Translate column 7 to a letter
+        print(get_column_letter(7))
+        
+        # To Access the same via specific cell inputs
+        print(self.sheet['G19'].column_letter)
+        print(self.sheet.cell(row=19, column=7).column_letter)
 
+        # To verify
+        using_column_letter = get_column_letter(3)
+        using_column_sheetcell = self.sheet['C3'].column_letter
+        using_column_sheetcell2 = self.sheet.cell(row=19, column=3).column_letter
+        
+        if using_column_letter == using_column_sheetcell and using_column_sheetcell2:
+            print("Interconversion is possible between letter and number")
+            
+        else:
+            print("Interconversion between letter and number is impossible")
             
             
             
 if __name__ == "__main__":
     Iterator().loops()
+    Iterator().converter()
