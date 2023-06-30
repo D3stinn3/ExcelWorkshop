@@ -72,24 +72,17 @@ def reverse_superposition() -> str:
     else:
         return "\nValue is not similar"
 
-def row_loop():
-    # Loop through every row
-    
-    for i in range(1, 10, 2):
-        # Use the reverse cell position to iterate through the rows
-        # Get the cell value
-        return (i, sheet.cell(row=i, column=3).value)
-                 
+
 
 A1_pos = superposition_A1()
 B2_pos = superposition_B2()
 C3_pos = reverse_superposition()
-Cell_row_loop = row_loop()
+
 
 if __name__ == "__main__":
     print(A1_pos)
     print(B2_pos)
     print(C3_pos)
-    print(Cell_row_loop)
+
 
 
