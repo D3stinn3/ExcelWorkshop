@@ -55,6 +55,8 @@ class Iterator:
         using_column_sheetcell = self.sheet['C3'].column_letter
         using_column_sheetcell2 = self.sheet.cell(row=19, column=3).column_letter
         
+        print("\n")
+        
         if using_column_letter == using_column_sheetcell and using_column_sheetcell2:
             print("Interconversion is possible between letter and number")
             
