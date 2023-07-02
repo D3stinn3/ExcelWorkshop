@@ -59,12 +59,47 @@ class Iterator:
         
         if using_column_letter == using_column_sheetcell and using_column_sheetcell2:
             print("Interconversion is possible between letter and number")
-            
+            print("\n")   
         else:
             print("Interconversion between letter and number is impossible")
-            
-            
-            
+            print("\n")
+    
+    def rows_vs_colums(self):
+        # Lets see how many rows and columns we have
+        print("Rows: ", self.sheet.max_row)
+        print("Columns: ", self.sheet.max_column)
+        print("\n")
+        
+        # Closing in on the rows and columns
+        # Slicing is one way to do it to get the rectangular area between cell A3 to G5
+        Cell_list_A3_to_G2 = list(self.sheet['A3':'G5'])
+        print(Cell_list_A3_to_G2)
+        print("\n")
+        
+        # Depends on your worksheet, identify a names column by accessing 
+        name_list = list(self.sheet.columns)[6]
+        
+        # Also depends on your worksheet, identify the rows intended same as the columns
+        title_list = list(self.sheet.rows)[1]
+        
+        # Loop over all the cells to obtain value and coordinates
+        for cellobjects in Cell_list_A3_to_G2:
+            for cellobject in cellobjects:
+                print(cellobject.column_letter, cellobject.coordinate, cellobject.value)
+            print("\n")
+        
+        # Loop over the desired namelist, verifying the cell coordinate in the process    
+        for cellobject in name_list:
+            print(cellobject.coordinate, cellobject.value)
+        print("\n")
+        
+        # Loop over the desired titlelist, verifyng the cell coordinates in the process
+        for cellobj in title_list:
+            print(cellobj.coordinate, cellobj.value)
+        print("\n")
+        
+           
 if __name__ == "__main__":
     Iterator().loops()
     Iterator().converter()
+    Iterator().rows_vs_colums()
