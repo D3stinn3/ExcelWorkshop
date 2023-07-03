@@ -98,8 +98,39 @@ class Iterator:
             print(cellobj.coordinate, cellobj.value)
         print("\n")
         
+
+    def list_search(self):
+        # Listing out column titles
+        specific_cell = list(self.sheet.columns)[1][3]
+        print(specific_cell.value)
+        print("\n")
+        
+        # Verifying if cell is contained in a bracket or specific boundaries
+        cell_value = specific_cell.value
+        location_to_search = self.sheet["A1" : "G7"]
+        
+        # Not found in area
+        if cell_value in location_to_search:
+            print("Cell is in the query area")
+            print("\n")
+        else:
+            print("Cell is not in the query area")
+            print("\n")
+            
+        # Verbose search will identify the    
+        for cell_group in location_to_search:
+            for cell in cell_group:
+                if cell_value == cell.value:
+                    print(f"Found it at {cell.coordinate}")
+                    
+                else:
+                    print(f"Not found at {cell.coordinate}") 
+
+        
+        
            
 if __name__ == "__main__":
     Iterator().loops()
     Iterator().converter()
     Iterator().rows_vs_colums()
+    Iterator().list_search()
