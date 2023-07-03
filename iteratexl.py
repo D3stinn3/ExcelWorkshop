@@ -100,7 +100,7 @@ class Iterator:
         
 
     def list_search(self):
-        # Listing out column titles
+        # Listing out individual cell to search
         specific_cell = list(self.sheet.columns)[1][3]
         print(specific_cell.value)
         print("\n")
@@ -109,7 +109,7 @@ class Iterator:
         cell_value = specific_cell.value
         location_to_search = self.sheet["A1" : "G7"]
         
-        # Not found in area
+        # Not found in area because the cell value is not specified
         if cell_value in location_to_search:
             print("Cell is in the query area")
             print("\n")
@@ -117,7 +117,7 @@ class Iterator:
             print("Cell is not in the query area")
             print("\n")
             
-        # Verbose search will identify the    
+        # Verbose search will identify the cell by value    
         for cell_group in location_to_search:
             for cell in cell_group:
                 if cell_value == cell.value:
