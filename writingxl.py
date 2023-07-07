@@ -66,9 +66,24 @@ class Creation:
             print("Value changed")
             print("\n")
             print("New value: {0}".format(self.sheet['A1'].value))
+            print("\n")
+            
+      
+    def filterwritten(self):
+        # Andika sheetnames zote
+        my_sheet_list = self.workbook.sheetnames
+        
+        # Tumia lambda function kudadisi kama sheet one iko
+        # Uses boolean to evaluate
+        filter_yangu = filter(lambda x: x.count("Sheet1") == 0, my_sheet_list)
+        print(list(filter_yangu))
+
+    
+               
         
 
 if __name__ == "__main__":
     Creation().create_wb_sheet()
     Creation().verify()
     Creation().writecell()
+    Creation().filterwritten()
